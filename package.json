@@ -1,0 +1,56 @@
+{
+  "name": "linter-packer-validate",
+  "main": "./lib/main.js",
+  "version": "1.0.0",
+  "description": "Packer lint via validate",
+  "repository": "https://github.com/mschuchard/linter-packer-validate",
+  "license": "MIT",
+  "keywords": [
+    "lint",
+    "linter",
+    "packer"
+  ],
+  "bugs": {
+    "url": "https://github.com/mschuchard/linter-packer-validate/issues"
+  },
+  "engines": {
+    "atom": ">0.95.0"
+  },
+  "providedServices": {
+    "linter": {
+      "versions": {
+        "1.0.0": "provideLinter"
+      }
+    }
+  },
+  "readmeFilename": "README.md",
+  "dependencies": {
+    "atom-linter": "^5.0.2",
+    "atom-package-deps": "^3.0.9"
+  },
+  "package-deps": [
+    "linter",
+    "language-json"
+  ],
+  "devDependencies": {
+    "eslint": "latest",
+    "babel-eslint": "latest"
+  },
+  "eslintConfig": {
+    "parser": "babel-eslint",
+    "rules": {
+      "strict": 0
+    },
+    "env": {
+      "es6": true,
+      "browser": true,
+      "node": true
+    },
+    "ecmaFeatures": {
+      "modules": true
+    },
+    "globals": {
+      "atom": true
+    }
+  }
+}

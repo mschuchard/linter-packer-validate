@@ -1,0 +1,10 @@
+{
+  "builders": [{
+    "type": "digital",
+    "api_token": "stuff",
+    "image": "ubuntu-14-04-x64",
+    "region": "nyc3",
+    "size": "512mb",
+    "ssh_username": "root"
+  }]
+}
