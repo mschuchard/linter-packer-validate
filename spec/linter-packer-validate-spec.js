@@ -91,7 +91,7 @@ describe('The Packer Validate provider for Linter', () => {
           expect(messages[1].type).toBeDefined();
           expect(messages[1].type).toEqual('Error');
           expect(messages[1].text).toBeDefined();
-          expect(messages[1].text).toEqual("Errors validating build 'amazon-ebs': A source_ami must be specified");
+          expect(messages[1].text).toEqual("A source_ami must be specified");
           expect(messages[1].filePath).toBeDefined();
           expect(messages[1].filePath).toMatch(/.+ok_json_multiple_packer_errors\.json$/);
           expect(messages[2].type).toBeDefined();
@@ -103,7 +103,7 @@ describe('The Packer Validate provider for Linter', () => {
           expect(messages[3].type).toBeDefined();
           expect(messages[3].type).toEqual('Error');
           expect(messages[3].text).toBeDefined();
-          expect(messages[3].text).toEqual("Errors validating build 'digitalocean': region is required");
+          expect(messages[3].text).toEqual("region is required");
           expect(messages[3].filePath).toBeDefined();
           expect(messages[3].filePath).toMatch(/.+ok_json_multiple_packer_errors\.json$/);
         });
