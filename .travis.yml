@@ -1,5 +1,5 @@
 # setup environment
-sudo: false
+sudo: true
 language: go
 
 notifications:
@@ -22,7 +22,7 @@ matrix:
 
 # execute tests
 install:
-  - wget https://releases.hashicorp.com/packer/1.0.0/packer_1.0.0_linux_amd64.zip
-  - unzip packer_1.0.0_linux_amd64.zip -d /usr/bin/
+  - sudo wget https://releases.hashicorp.com/packer/1.0.0/packer_1.0.0_linux_amd64.zip
+  - sudo unzip packer_1.0.0_linux_amd64.zip -d /usr/bin/
 before_script: packer --version
 script: 'curl -s https://raw.githubusercontent.com/atom/ci/master/build-package.sh | sh'

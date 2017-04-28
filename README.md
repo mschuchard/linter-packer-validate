@@ -1,6 +1,8 @@
 ![Preview](https://raw.githubusercontent.com/mschuchard/linter-packer-validate/master/linter_packer_validate.png)
 
 ### Linter-Packer-Validate
+[![Build Status](https://travis-ci.org/mschuchard/linter-packer-validate.svg?branch=master)](https://travis-ci.org/mschuchard/linter-packer-validate)
+
 `Linter-Packer-Validate` aims to provide functional and robust `packer validate` linting functionality within Atom.
 
 ### Installation
