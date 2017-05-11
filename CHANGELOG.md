@@ -1,7 +1,7 @@
 ### Next (Roadmap)
 - Switched to using Linter v2 API.
+- Multiple errors for same builder now each display builder info.
 - linter 2 api
-- get bullder info displaying for multiple errors in same bullder info
 
 ### 1.0.2
 - Fixed message display for multiple issues per builder.
