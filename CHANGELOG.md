@@ -1,8 +1,10 @@
 ### Next (Roadmap)
+- jasmine tests
+
+### 1.1.0
 - Switched to using Linter v2 API.
 - Multiple errors for same builder now each display builder info.
 - Removed `atom-package-deps` dependency and functionality.
-- linter 2 api
 
 ### 1.0.2
 - Fixed message display for multiple issues per builder.

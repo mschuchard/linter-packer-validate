@@ -24,6 +24,7 @@ matrix:
 # execute tests
 install:
   - sudo wget https://releases.hashicorp.com/packer/1.0.0/packer_1.0.0_linux_amd64.zip
-  - sudo unzip packer_1.0.0_linux_amd64.zip -d /usr/bin/
+  - mkdir -p /home/travis/bin
+  - sudo unzip packer_1.0.0_linux_amd64.zip -d /home/travis/bin/
 before_script: packer --version
 script: 'curl -s https://raw.githubusercontent.com/atom/ci/master/build-package.sh | sh'
