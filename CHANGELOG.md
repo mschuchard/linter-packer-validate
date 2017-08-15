@@ -1,5 +1,4 @@
 ### Next (Roadmap)
-- jasmine tests
 
 ### 1.1.0
 - Switched to using Linter v2 API.

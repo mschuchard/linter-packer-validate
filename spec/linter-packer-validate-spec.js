@@ -37,26 +37,25 @@ describe('The Packer Validate provider for Linter', () => {
     it('verifies the first message', () => {
       waitsForPromise(() => {
         return lint(editor).then(messages => {
-          expect(messages[0].type).toBeDefined();
-          expect(messages[0].type).toEqual('Error');
-          expect(messages[0].text).toBeDefined();
-          expect(messages[0].text).toEqual("Error parsing JSON. Use a JSON Linter for specific assistance.");
-          expect(messages[0].filePath).toBeDefined();
-          expect(messages[0].filePath).toMatch(/.+bad_json_bad_packer\.json$/);
+          expect(messages[0].severity).toBeDefined();
+          expect(messages[0].severity).toEqual('error');
+          expect(messages[0].excerpt).toBeDefined();
+          expect(messages[0].excerpt).toEqual("Error parsing JSON. Use a JSON Linter for specific assistance.");
+          expect(messages[0].location.file).toBeDefined();
+          expect(messages[0].location.file).toMatch(/.+bad_json_bad_packer\.json$/);
         });
       });
     });
   });
 
-  it('checks a json file with an error and does nothing', () => {
-    waitsForPromise(() => {
-      const goodFile = path.join(__dirname, 'fixtures/', 'bad_json_not_packer.json');
-      return atom.workspace.open(goodFile).then(editor =>
-        lint(editor).then(messages => {
-          expect(messages.length).toEqual(0);
-        })
-      );
-    });
+  it('checks a json file with an error and does nothing', function(done) {
+    const goodFile = path.join(__dirname, 'fixtures/', 'bad_json_not_packer.json');
+    return atom.workspace.open(goodFile).then(editor =>
+      lint(editor).then(messages => {
+      }, function(reason) {
+        done();
+      })
+    );
   });
 
   //todo
@@ -79,47 +78,46 @@ describe('The Packer Validate provider for Linter', () => {
       );
     });
 
-    it('verifies the first message', () => {
+    it('verifies the messages', () => {
       waitsForPromise(() => {
         return lint(editor).then(messages => {
-          expect(messages[0].type).toBeDefined();
-          expect(messages[0].type).toEqual('Error');
-          expect(messages[0].text).toBeDefined();
-          expect(messages[0].text).toEqual("Errors validating build 'amazon-ebs': ami_name must be specified");
-          expect(messages[0].filePath).toBeDefined();
-          expect(messages[0].filePath).toMatch(/.+ok_json_multiple_packer_errors\.json$/);
-          expect(messages[1].type).toBeDefined();
-          expect(messages[1].type).toEqual('Error');
-          expect(messages[1].text).toBeDefined();
-          expect(messages[1].text).toEqual("A source_ami must be specified");
-          expect(messages[1].filePath).toBeDefined();
-          expect(messages[1].filePath).toMatch(/.+ok_json_multiple_packer_errors\.json$/);
-          expect(messages[2].type).toBeDefined();
-          expect(messages[2].type).toEqual('Error');
-          expect(messages[2].text).toBeDefined();
-          expect(messages[2].text).toEqual("Errors validating build 'digitalocean': api_token for auth must be specified");
-          expect(messages[2].filePath).toBeDefined();
-          expect(messages[2].filePath).toMatch(/.+ok_json_multiple_packer_errors\.json$/);
-          expect(messages[3].type).toBeDefined();
-          expect(messages[3].type).toEqual('Error');
-          expect(messages[3].text).toBeDefined();
-          expect(messages[3].text).toEqual("region is required");
-          expect(messages[3].filePath).toBeDefined();
-          expect(messages[3].filePath).toMatch(/.+ok_json_multiple_packer_errors\.json$/);
+          expect(messages[0].severity).toBeDefined();
+          expect(messages[0].severity).toEqual('error');
+          expect(messages[0].excerpt).toBeDefined();
+          expect(messages[0].excerpt).toEqual("Errors validating build 'amazon-ebs': ami_name must be specified");
+          expect(messages[0].location.file).toBeDefined();
+          expect(messages[0].location.file).toMatch(/.+ok_json_multiple_packer_errors\.json$/);
+          expect(messages[1].severity).toBeDefined();
+          expect(messages[1].severity).toEqual('error');
+          expect(messages[1].excerpt).toBeDefined();
+          expect(messages[1].excerpt).toEqual("Errors validating build 'amazon-ebs': A source_ami must be specified");
+          expect(messages[1].location.file).toBeDefined();
+          expect(messages[1].location.file).toMatch(/.+ok_json_multiple_packer_errors\.json$/);
+          expect(messages[2].severity).toBeDefined();
+          expect(messages[2].severity).toEqual('error');
+          expect(messages[2].excerpt).toBeDefined();
+          expect(messages[2].excerpt).toEqual("Errors validating build 'digitalocean': api_token for auth must be specified");
+          expect(messages[2].location.file).toBeDefined();
+          expect(messages[2].location.file).toMatch(/.+ok_json_multiple_packer_errors\.json$/);
+          expect(messages[3].severity).toBeDefined();
+          expect(messages[3].severity).toEqual('error');
+          expect(messages[3].excerpt).toBeDefined();
+          expect(messages[3].excerpt).toEqual("Errors validating build 'digitalocean': region is required");
+          expect(messages[3].location.file).toBeDefined();
+          expect(messages[3].location.file).toMatch(/.+ok_json_multiple_packer_errors\.json$/);
         });
       });
     });
   });
 
-  it('checks a valid json file and does nothing', () => {
-    waitsForPromise(() => {
-      const goodFile = path.join(__dirname, 'fixtures/', 'ok_json_not_packer.json');
-      return atom.workspace.open(goodFile).then(editor =>
-        lint(editor).then(messages => {
-          expect(messages.length).toEqual(0);
-        })
-      );
-    });
+  it('checks a valid json file and does nothing', function(done) {
+    const goodFile = path.join(__dirname, 'fixtures/', 'ok_json_not_packer.json');
+    return atom.workspace.open(goodFile).then(editor =>
+      lint(editor).then(messages => {
+      }, function(reason) {
+        done();
+      })
+    );
   });
 
   it('finds nothing wrong with a valid file', () => {
@@ -133,7 +131,7 @@ describe('The Packer Validate provider for Linter', () => {
     });
   });
 
-  describe('checks a packer template with an error with no builder info', () => {
+  describe('checks a packer template with an error outside of a builder (builder info for Packer >= 0.10.2)', () => {
     let editor = null;
     const badFile = path.join(__dirname, 'fixtures/', 'ok_json_one_packer_error_no_builder_info.json');
     beforeEach(() => {
@@ -155,12 +153,12 @@ describe('The Packer Validate provider for Linter', () => {
     it('verifies the first message', () => {
       waitsForPromise(() => {
         return lint(editor).then(messages => {
-          expect(messages[0].type).toBeDefined();
-          expect(messages[0].type).toEqual('Error');
-          expect(messages[0].text).toBeDefined();
-          expect(messages[0].text).toEqual("Unknown root level key in template: 'unknown'");
-          expect(messages[0].filePath).toBeDefined();
-          expect(messages[0].filePath).toMatch(/.+ok_json_one_packer_error_no_builder_info\.json$/);
+          expect(messages[0].severity).toBeDefined();
+          expect(messages[0].severity).toEqual('error');
+          expect(messages[0].excerpt).toBeDefined();
+          expect(messages[0].excerpt).toEqual("Errors validating build 'digitalocean': Unknown root level key in template: 'unknown'");
+          expect(messages[0].location.file).toBeDefined();
+          expect(messages[0].location.file).toMatch(/.+ok_json_one_packer_error_no_builder_info\.json$/);
         });
       });
     });
@@ -188,12 +186,12 @@ describe('The Packer Validate provider for Linter', () => {
     it('verifies the first message', () => {
       waitsForPromise(() => {
         return lint(editor).then(messages => {
-          expect(messages[0].type).toBeDefined();
-          expect(messages[0].type).toEqual('Error');
-          expect(messages[0].text).toBeDefined();
-          expect(messages[0].text).toEqual("Failed to initialize build 'digital': builder type not found: digital");
-          expect(messages[0].filePath).toBeDefined();
-          expect(messages[0].filePath).toMatch(/.+ok_json_one_packer_error_one_line\.json$/);
+          expect(messages[0].severity).toBeDefined();
+          expect(messages[0].severity).toEqual('error');
+          expect(messages[0].excerpt).toBeDefined();
+          expect(messages[0].excerpt).toEqual("Failed to initialize build 'digital': builder type not found: digital");
+          expect(messages[0].location.file).toBeDefined();
+          expect(messages[0].location.file).toMatch(/.+ok_json_one_packer_error_one_line\.json$/);
         });
       });
     });
@@ -221,12 +219,12 @@ describe('The Packer Validate provider for Linter', () => {
     it('verifies the first message', () => {
       waitsForPromise(() => {
         return lint(editor).then(messages => {
-          expect(messages[0].type).toBeDefined();
-          expect(messages[0].type).toEqual('Error');
-          expect(messages[0].text).toBeDefined();
-          expect(messages[0].text).toEqual("Errors validating build 'digitalocean': api_token for auth must be specified");
-          expect(messages[0].filePath).toBeDefined();
-          expect(messages[0].filePath).toMatch(/.+ok_json_one_packer_error\.json$/);
+          expect(messages[0].severity).toBeDefined();
+          expect(messages[0].severity).toEqual('error');
+          expect(messages[0].excerpt).toBeDefined();
+          expect(messages[0].excerpt).toEqual("Errors validating build 'digitalocean': api_token for auth must be specified");
+          expect(messages[0].location.file).toBeDefined();
+          expect(messages[0].location.file).toMatch(/.+ok_json_one_packer_error\.json$/);
         });
       });
     });
