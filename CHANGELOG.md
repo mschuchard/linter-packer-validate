@@ -1,4 +1,6 @@
 ### Next (Roadmap)
+- Add `cwd` to execution so provisioner files are found during validation.
+aws.json and azure.json and then azure.json build info is coming from aws.json (also it has no builder info anyway since it is a provisioner so two issues here)
 
 ### 1.1.0
 - Switched to using Linter v2 API.
