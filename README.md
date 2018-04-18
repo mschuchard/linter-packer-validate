@@ -6,7 +6,7 @@
 `Linter-Packer-Validate` aims to provide functional and robust `packer validate` linting functionality within Atom.
 
 ### Installation
-The `packer` package is required to be installed before using this. The `Linter` and `Language-JSON` Atom packages are also required.
+`Packer` is required to be installed before using this. The `Linter` and `Language-JSON` Atom packages are also required.
 
 ### Usage
 - All JSON files with a `builders` key that has an array value will be linted with this linter. Be aware of this in case you have a non-Packer JSON file with this characteristic. Also be aware of this in case you have a typo for the `builders` key, since this linter will then not trigger.

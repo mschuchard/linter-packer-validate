@@ -1,7 +1,7 @@
 {
   "name": "linter-packer-validate",
   "main": "./lib/main.js",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Packer lint via validate",
   "repository": "https://github.com/mschuchard/linter-packer-validate",
   "license": "MIT",
