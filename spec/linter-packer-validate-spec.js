@@ -72,7 +72,7 @@ describe('The Packer Validate provider for Linter', () => {
     it('finds the messages', () => {
       waitsForPromise(() =>
         lint(editor).then(messages => {
-          expect(messages.length).toEqual(4);
+          expect(messages.length).toEqual(5);
         })
       );
     });
@@ -89,21 +89,27 @@ describe('The Packer Validate provider for Linter', () => {
           expect(messages[1].severity).toBeDefined();
           expect(messages[1].severity).toEqual('error');
           expect(messages[1].excerpt).toBeDefined();
-          expect(messages[1].excerpt).toEqual("Errors validating build 'amazon-ebs': A source_ami must be specified");
+          expect(messages[1].excerpt).toEqual("Errors validating build 'amazon-ebs': ami_name must be between 3 and 128 characters long");
           expect(messages[1].location.file).toBeDefined();
           expect(messages[1].location.file).toMatch(/.+ok_json_multiple_packer_errors\.json$/);
           expect(messages[2].severity).toBeDefined();
           expect(messages[2].severity).toEqual('error');
           expect(messages[2].excerpt).toBeDefined();
-          expect(messages[2].excerpt).toEqual("Errors validating build 'digitalocean': api_token for auth must be specified");
+          expect(messages[2].excerpt).toEqual("Errors validating build 'amazon-ebs': A source_ami or source_ami_filter must be specified");
           expect(messages[2].location.file).toBeDefined();
           expect(messages[2].location.file).toMatch(/.+ok_json_multiple_packer_errors\.json$/);
           expect(messages[3].severity).toBeDefined();
           expect(messages[3].severity).toEqual('error');
           expect(messages[3].excerpt).toBeDefined();
-          expect(messages[3].excerpt).toEqual("Errors validating build 'digitalocean': region is required");
+          expect(messages[3].excerpt).toEqual("Errors validating build 'digitalocean': api_token for auth must be specified");
           expect(messages[3].location.file).toBeDefined();
           expect(messages[3].location.file).toMatch(/.+ok_json_multiple_packer_errors\.json$/);
+          expect(messages[4].severity).toBeDefined();
+          expect(messages[4].severity).toEqual('error');
+          expect(messages[4].excerpt).toBeDefined();
+          expect(messages[4].excerpt).toEqual("Errors validating build 'digitalocean': region is required");
+          expect(messages[4].location.file).toBeDefined();
+          expect(messages[4].location.file).toMatch(/.+ok_json_multiple_packer_errors\.json$/);
         });
       });
     });
