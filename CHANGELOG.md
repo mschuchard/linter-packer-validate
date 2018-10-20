@@ -1,4 +1,5 @@
 ### Next (Roadmap)
+- Updated `atom-linter` dependency.
 can use key info to do line number? https://stackoverflow.com/questions/6946466/line-number-of-the-matched-characters-in-js-node-js
 
 ### 1.1.1
