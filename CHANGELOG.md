@@ -1,7 +1,10 @@
 ### Next (Roadmap)
 - Updated `atom-linter` dependency.
 - Catch linting on nonexistent files.
+- Substitute escaped `%!(PACKER_COMMA)` output with actual comma.
+
 can use key info to do line number? https://stackoverflow.com/questions/6946466/line-number-of-the-matched-characters-in-js-node-js
+* variable regions: '' expected type 'string', got unconvertible type '[]interface {}' causes an undef toReturn
 
 ### 1.1.1
 - Add `cwd` to execution so provisioner files are found during validation.
