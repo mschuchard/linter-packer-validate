@@ -72,7 +72,7 @@ describe('The Packer Validate provider for Linter', () => {
     it('finds the messages', () => {
       waitsForPromise(() =>
         lint(editor).then(messages => {
-          expect(messages.length).toEqual(5);
+          expect(messages.length).toEqual(6);
         })
       );
     });
@@ -101,15 +101,21 @@ describe('The Packer Validate provider for Linter', () => {
           expect(messages[3].severity).toBeDefined();
           expect(messages[3].severity).toEqual('error');
           expect(messages[3].excerpt).toBeDefined();
-          expect(messages[3].excerpt).toEqual("Errors validating build 'digitalocean': api_token for auth must be specified");
+          expect(messages[3].excerpt).toEqual("Errors validating build 'amazon-ebs': For security reasons, your source AMI filter must declare an owner.");
           expect(messages[3].location.file).toBeDefined();
           expect(messages[3].location.file).toMatch(/.+ok_json_multiple_packer_errors\.json$/);
           expect(messages[4].severity).toBeDefined();
           expect(messages[4].severity).toEqual('error');
           expect(messages[4].excerpt).toBeDefined();
-          expect(messages[4].excerpt).toEqual("Errors validating build 'digitalocean': region is required");
+          expect(messages[4].excerpt).toEqual("Errors validating build 'digitalocean': api_token for auth must be specified");
           expect(messages[4].location.file).toBeDefined();
           expect(messages[4].location.file).toMatch(/.+ok_json_multiple_packer_errors\.json$/);
+          expect(messages[5].severity).toBeDefined();
+          expect(messages[5].severity).toEqual('error');
+          expect(messages[5].excerpt).toBeDefined();
+          expect(messages[5].excerpt).toEqual("Errors validating build 'digitalocean': region is required");
+          expect(messages[5].location.file).toBeDefined();
+          expect(messages[5].location.file).toMatch(/.+ok_json_multiple_packer_errors\.json$/);
         });
       });
     });
