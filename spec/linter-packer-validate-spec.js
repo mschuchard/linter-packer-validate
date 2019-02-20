@@ -48,7 +48,7 @@ describe('The Packer Validate provider for Linter', () => {
     });
   });
 
-  it('checks a json file with an error and does nothing', (done) => {
+  it('checks a non-packer json file with an error and does nothing', (done) => {
     const goodFile = path.join(__dirname, 'fixtures/', 'bad_json_not_packer.json');
     return atom.workspace.open(goodFile).then(editor =>
       lint(editor).then(messages => {
@@ -115,7 +115,7 @@ describe('The Packer Validate provider for Linter', () => {
     });
   });
 
-  it('checks a valid json file and does nothing', (done) => {
+  it('checks a valid non-packer json file and does nothing', (done) => {
     const goodFile = path.join(__dirname, 'fixtures/', 'ok_json_not_packer.json');
     return atom.workspace.open(goodFile).then(editor =>
       lint(editor).then(messages => {
@@ -161,7 +161,7 @@ describe('The Packer Validate provider for Linter', () => {
           expect(messages[0].severity).toBeDefined();
           expect(messages[0].severity).toEqual('error');
           expect(messages[0].excerpt).toBeDefined();
-          expect(messages[0].excerpt).toEqual("Errors validating build 'digitalocean': Unknown root level key in template: 'unknown'");
+          expect(messages[0].excerpt).toEqual("Unknown root level key in template: 'unknown'");
           expect(messages[0].location.file).toBeDefined();
           expect(messages[0].location.file).toMatch(/.+ok_json_one_packer_error_no_builder_info\.json$/);
         });
