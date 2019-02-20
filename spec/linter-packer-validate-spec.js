@@ -136,7 +136,7 @@ describe('The Packer Validate provider for Linter', () => {
     });
   });
 
-  describe('checks a packer template with an error outside of a builder (builder info for Packer >= 0.10.2)', () => {
+  describe('checks a packer template with an error outside of a builder', () => {
     let editor = null;
     const badFile = path.join(__dirname, 'fixtures/', 'ok_json_one_packer_error_no_builder_info.json');
     beforeEach(() => {
@@ -164,6 +164,39 @@ describe('The Packer Validate provider for Linter', () => {
           expect(messages[0].excerpt).toEqual("Unknown root level key in template: 'unknown'");
           expect(messages[0].location.file).toBeDefined();
           expect(messages[0].location.file).toMatch(/.+ok_json_one_packer_error_no_builder_info\.json$/);
+        });
+      });
+    });
+  });
+
+  describe('checks a packer template with an error inside variables', () => {
+    let editor = null;
+    const badFile = path.join(__dirname, 'fixtures/', 'ok_json_one_packer_var_error.json');
+    beforeEach(() => {
+      waitsForPromise(() =>
+        atom.workspace.open(badFile).then(openEditor => {
+          editor = openEditor;
+        })
+      );
+    });
+
+    it('finds the first message', () => {
+      waitsForPromise(() =>
+        lint(editor).then(messages => {
+          expect(messages.length).toEqual(1);
+        })
+      );
+    });
+
+    it('verifies the first message', () => {
+      waitsForPromise(() => {
+        return lint(editor).then(messages => {
+          expect(messages[0].severity).toBeDefined();
+          expect(messages[0].severity).toEqual('error');
+          expect(messages[0].excerpt).toBeDefined();
+          expect(messages[0].excerpt).toEqual("variable foo: '' expected type 'string', got unconvertible type '[]interface {}'");
+          expect(messages[0].location.file).toBeDefined();
+          expect(messages[0].location.file).toMatch(/.+ok_json_one_packer_var_error\.json$/);
         });
       });
     });
