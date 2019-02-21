@@ -1,12 +1,8 @@
-### Next (Roadmap)
+### 1.2.0
 - Updated `atom-linter` dependency.
 - Catch linting on nonexistent files.
 - Substitute escaped `%!(PACKER_COMMA)` output with actual comma.
 - Fix inaccurate cached builder info between lints.
-
-can use key info to do line number? https://stackoverflow.com/questions/6946466/line-number-of-the-matched-characters-in-js-node-js
-* variable regions: '' expected type 'string', got unconvertible type '[]interface {}' causes an undef toReturn; so actually this was due to something else apparently
-establish min version 1.0 in code and doc
 
 ### 1.1.1
 - Add `cwd` to execution so provisioner files are found during validation.
