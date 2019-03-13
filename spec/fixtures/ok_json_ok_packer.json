@@ -6,5 +6,9 @@
     "region": "nyc3",
     "size": "512mb",
     "ssh_username": "root"
+  }],
+  "provisioners": [{
+    "type": "shell",
+    "script": "foo.sh"
   }]
 }
