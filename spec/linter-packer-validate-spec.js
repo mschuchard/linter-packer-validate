@@ -49,13 +49,16 @@ describe('The Packer Validate provider for Linter', () => {
   });
 
   it('checks a non-packer json file with an error and does nothing', (done) => {
-    const goodFile = path.join(__dirname, 'fixtures/', 'bad_json_not_packer.json');
-    return atom.workspace.open(goodFile).then(editor =>
-      lint(editor).then(messages => {
-      }, (reason) => {
-        done();
-      })
-    );
+    let editor = null;
+    waitsForPromise(() => {
+      const goodFile = path.join(__dirname, 'fixtures/', 'bad_json_not_packer.json');
+      return atom.workspace.open(goodFile).then(editor =>
+        lint(editor).then(messages => {
+        }, (reason) => {
+          done();
+        })
+      );
+    });
   });
 
   describe('checks a packer template with multiple errors', () => {
@@ -122,16 +125,21 @@ describe('The Packer Validate provider for Linter', () => {
   });
 
   it('checks a valid non-packer json file and does nothing', (done) => {
-    const goodFile = path.join(__dirname, 'fixtures/', 'ok_json_not_packer.json');
-    return atom.workspace.open(goodFile).then(editor =>
-      lint(editor).then(messages => {
-      }, (reason) => {
-        done();
-      })
-    );
+    let editor = null;
+    waitsForPromise(() => {
+      let editor = null;
+      const goodFile = path.join(__dirname, 'fixtures/', 'ok_json_not_packer.json');
+      return atom.workspace.open(goodFile).then(editor =>
+        lint(editor).then(messages => {
+        }, (reason) => {
+          done();
+        })
+      );
+    });
   });
 
   it('finds nothing wrong with a valid file', () => {
+    let editor = null;
     waitsForPromise(() => {
       const goodFile = path.join(__dirname, 'fixtures', 'ok_json_ok_packer.json');
       return atom.workspace.open(goodFile).then(editor =>
