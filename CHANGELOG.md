@@ -1,4 +1,8 @@
 ### Next (Roadmap)
+- Add support for HCL language.
+
+- add hcl tests
+- change hcl regexp to source and update doc
 - can use key info to do line number? https://stackoverflow.com/questions/6946466/line-number-of-the-matched-characters-in-js-node-js
 
 ### 1.2.1
