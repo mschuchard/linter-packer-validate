@@ -12,7 +12,7 @@ git:
 # setup tests
 env:
   global:
-    - APM_TEST_PACKAGES="language-json"
+    - APM_TEST_PACKAGES="language-json language-hcl"
     - ATOM_LINT_WITH_BUNDLED_NODE="true"
 
 matrix:

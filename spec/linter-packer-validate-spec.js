@@ -131,10 +131,32 @@ describe('The Packer Validate provider for Linter', () => {
     );
   });
 
-  it('finds nothing wrong with a valid file', () => {
+  it('checks a valid non-packer hcl file and does nothing', (done) => {
+    const goodFile = path.join(__dirname, 'fixtures/', 'ok_hcl_not_packer.hcl');
+    return atom.workspace.open(goodFile).then(editor =>
+      lint(editor).then(messages => {
+      }, (reason) => {
+        done();
+      })
+    );
+  });
+
+  it('finds nothing wrong with a valid json file', () => {
     let editor = null;
     waitsForPromise(() => {
       const goodFile = path.join(__dirname, 'fixtures', 'ok_json_ok_packer.json');
+      return atom.workspace.open(goodFile).then(editor =>
+        lint(editor).then(messages => {
+          expect(messages.length).toEqual(0);
+        })
+      );
+    });
+  });
+
+  it('finds nothing wrong with a valid hcl file', () => {
+    let editor = null;
+    waitsForPromise(() => {
+      const goodFile = path.join(__dirname, 'fixtures', 'ok_hcl_ok_packer.hcl');
       return atom.workspace.open(goodFile).then(editor =>
         lint(editor).then(messages => {
           expect(messages.length).toEqual(0);
