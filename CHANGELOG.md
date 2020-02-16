@@ -1,7 +1,5 @@
-### Next (Roadmap)
-- Add support for HCL language.
-
-- can use key info to do line number? https://stackoverflow.com/questions/6946466/line-number-of-the-matched-characters-in-js-node-js
+### 1.2.2
+- Add beta support for HCL language.
 
 ### 1.2.1
 - Recognize Packer templates with other valid JSON formats.
