@@ -1,5 +1,6 @@
 ### Next (Roadmap)
 - Display warning if Packer template is HCL syntax, but Packer version is 1.5.x.
+- Improve detection for Packer templates versus other JSON and HCL.
 
 ### 1.2.2
 - Add beta support for HCL language.
