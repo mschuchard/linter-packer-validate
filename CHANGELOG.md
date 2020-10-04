@@ -1,8 +1,7 @@
 ### Next (Roadmap)
 - Display warning if Packer template is HCL syntax, but Packer version is 1.5.x.
 - Improve detection for Packer templates versus other JSON and HCL.
-
-1.5 now demands .pkr.json ext too
+- Detect if JSON template has incorrect extension and display info.
 
 ### 1.2.2
 - Add beta support for HCL language.
