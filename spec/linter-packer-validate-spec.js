@@ -256,7 +256,7 @@ describe('The Packer Validate provider for Linter', () => {
           expect(messages[0].severity).toBeDefined();
           expect(messages[0].severity).toEqual('error');
           expect(messages[0].excerpt).toBeDefined();
-          expect(messages[0].excerpt).toEqual("Failed to initialize build 'digital': builder type not found: 'digital'");
+          expect(messages[0].excerpt).toEqual("Failed to initialize build 'digital': error initializing builder 'digital': Unknown builder digital");
           expect(messages[0].location.file).toBeDefined();
           expect(messages[0].location.file).toMatch(/.+ok_json_one_packer_error_one_line\.json$/);
         });
