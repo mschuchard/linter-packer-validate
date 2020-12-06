@@ -6,7 +6,7 @@
 Linter-Packer-Validate aims to provide functional and robust `packer validate` linting functionality within Atom.
 
 ### Installation
-Packer is required to be installed before using this. Versions in the range `~> 1.0` of Packer are officially supported. The Linter and Language-JSON or Language-HCL Atom packages are also required.
+Packer is required to be installed before using this. Versions in the range `=> 1.0 < 1.6` of Packer are officially supported. Full `~> 1.0` version compatibility will exist starting with release 1.3.0. The Linter and Language-JSON or Language-HCL Atom packages are also required.
 
 ### Usage
 - All JSON files with a `builders` key that has an array value, or HCL files with a proper `.pkr.hcl` extension, will be linted with this linter. Be aware of this in case you have a non-Packer JSON or HCL file with this characteristic. Also be aware of this in case you have a typo for the `builders` key or HCL file extension, since this linter will then not trigger.

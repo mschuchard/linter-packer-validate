@@ -1,4 +1,4 @@
-### Next (Roadmap)
+### 1.2.3
 - Display warning if Packer template is HCL syntax, but Packer version is 1.5.x.
 - Improve detection for Packer templates versus other JSON and HCL.
 - Detect if JSON template has incorrect extension and display info.
