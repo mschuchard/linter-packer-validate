@@ -1,3 +1,10 @@
+### 1.3.0 (Next)
+- Only recognize proper extensions for Packer templates.
+
+- error output format is different  in 1.6
+- hcl needs to take in dir for input arg and not template for 1.6 since it enforces proper extension
+- dirs can be referenced as input args once proper extensions enforced
+
 ### 1.2.3
 - Display warning if Packer template is HCL syntax, but Packer version is 1.5.x.
 - Improve detection for Packer templates versus other JSON and HCL.
