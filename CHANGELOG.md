@@ -1,9 +1,10 @@
 ### 1.3.0 (Next)
 - Only recognize proper extensions for Packer templates.
+- Preliminary support for 1.6 validation output format.
 
-- error output format is different  in 1.6
-- hcl needs to take in dir for input arg and not template for 1.6 since it enforces proper extension
-- dirs can be referenced as input args once proper extensions enforced
+- 1.6 error output format contains extra info on newlines
+- dirs can be referenced as input args once proper extensions enforced (and should be once vars also used)
+- closed template issues staying in ui
 
 ### 1.2.3
 - Display warning if Packer template is HCL syntax, but Packer version is 1.5.x.
