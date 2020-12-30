@@ -1,6 +1,7 @@
 ### 1.3.0 (Next)
 - Only recognize proper extensions for Packer templates.
 - Preliminary support for 1.6 validation output format.
+- Fix machine readable carriage return split.
 
 - 1.6 error output format contains extra info on newlines
 - dirs can be referenced as input args once proper extensions enforced (and should be once vars also used)
