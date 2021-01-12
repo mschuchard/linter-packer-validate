@@ -1,4 +1,12 @@
-### 1.3.0 (Next)
+### 1.3.1 (Next)
+- Add auto-formatting config option.
+
+- 1.6 error output format contains extra info on second and third newlines (not capturing file info yet; maybe parse second and third lines for excerpt and just first line for severity); improve support once 1.6 docs are released
+- dirs can be referenced as input args once proper extensions enforced (and should be once vars also used)
+- closed template issues staying in ui
+- 1.4.0 drop support for packer < 1.6
+
+### 1.3.0
 - Only recognize proper extensions for Packer templates.
 - Preliminary support for 1.6 validation output format.
 - Fix machine readable carriage return split.
