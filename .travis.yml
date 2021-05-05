@@ -1,5 +1,5 @@
 # setup environment
-dist: bionic
+dist: focal
 language: go
 
 branches:
@@ -15,19 +15,17 @@ git:
 # setup tests
 env:
   global:
-    - APM_TEST_PACKAGES="language-json language-hcl"
-    - ATOM_LINT_WITH_BUNDLED_NODE="true"
+  - APM_TEST_PACKAGES='language-json language-hcl'
+  - ATOM_LINT_WITH_BUNDLED_NODE='true'
+  - VERSION='1.6.6'
 
-matrix:
-  include:
-  - os: linux
-    env: VERSION='1.6.6'
+os: linux
 
 # execute tests
 install:
-  - sudo wget https://releases.hashicorp.com/packer/$VERSION/packer_"$VERSION"_linux_amd64.zip
+  - sudo wget "https://releases.hashicorp.com/packer/${VERSION}/packer_${VERSION}_linux_amd64.zip"
   # packer needs an alternate install location that is preferred over other paths since the travis images bake in a version of packer by default
   - mkdir -p /home/travis/bin
-  - sudo unzip packer_"$VERSION"_linux_amd64.zip -d /home/travis/bin/
+  - sudo unzip "packer_${VERSION}_linux_amd64.zip" -d /home/travis/bin/
 before_script: packer version
 script: 'curl -s https://raw.githubusercontent.com/atom/ci/master/build-package.sh | sh'
