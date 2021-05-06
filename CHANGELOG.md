@@ -1,10 +1,6 @@
-### 1.3.1 (Next)
+### 1.3.1
 - Add auto-formatting config option.
 - Add config option to lint directory.
-
-- 1.6 error output format contains extra info on second and third newlines; maybe parse second and third lines for excerpt and just first line for severity); improve support once 1.6 docs are released
-- closed template issues staying in ui even with file scope
-- 1.4.0 drop support for packer < 1.6
 
 ### 1.3.0
 - Only recognize proper extensions for Packer templates.
