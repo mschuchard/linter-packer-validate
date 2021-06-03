@@ -1,12 +1,12 @@
 ![Preview](https://raw.githubusercontent.com/mschuchard/linter-packer-validate/master/linter_packer_validate.png)
 
 ### Linter-Packer-Validate
-[![Build Status](https://travis-ci.org/mschuchard/linter-packer-validate.svg?branch=master)](https://travis-ci.org/mschuchard/linter-packer-validate)
+[![Build Status](https://travis-ci.com/mschuchard/linter-packer-validate.svg?branch=master)](https://travis-ci.com/mschuchard/linter-packer-validate)
 
 Linter-Packer-Validate aims to provide functional and robust `packer validate` linting and auto-formatting functionality within Atom.
 
 ### Installation
-Packer is required to be installed before using this. Versions in the range `~> 1.0` of Packer are officially supported. The Linter and Language-JSON or Language-HCL Atom packages are also required.
+Packer >= 1.6.0 is required to be installed before using this. If your version is lower, then you will need to downgrade this package to version 1.3.1. The Linter and Language-JSON or Language-HCL Atom packages are also required.
 
 ### Usage
 - All JSON files with a proper `.pkr.json` extension, or HCL files with a proper `.pkr.hcl` extension, will be linted with this linter. Be aware of this in case you have a non-Packer JSON or HCL file with this characteristic. Also be aware of this in case you have a typo in the template file extension, since this linter will then not trigger.
