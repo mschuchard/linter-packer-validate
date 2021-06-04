@@ -296,4 +296,47 @@ describe('The Packer Validate provider for Linter', () => {
       });
     });
   });
+
+  describe('checks a packer hcl template with errors', () => {
+    let editor = null;
+    const badFile = path.join(__dirname, 'fixtures/', 'ok_hcl_packer_errors.pkr.hcl');
+    beforeEach(() => {
+      waitsForPromise(() =>
+        atom.workspace.open(badFile).then(openEditor => {
+          editor = openEditor;
+        })
+      );
+    });
+
+    it('finds the first message', () => {
+      waitsForPromise(() =>
+        lint(editor).then(messages => {
+          expect(messages.length).toEqual(2);
+        })
+      );
+    });
+
+    it('verifies the messages', () => {
+      waitsForPromise(() => {
+        return lint(editor).then(messages => {
+          expect(messages[0].severity).toBeDefined();
+          expect(messages[0].severity).toEqual('error');
+          expect(messages[0].excerpt).toBeDefined();
+          expect(messages[0].excerpt).toEqual("Unsupported attribute");
+          expect(messages[0].location.file).toBeDefined();
+          expect(messages[0].location.file).toMatch(/.+ok_hcl_packer_errors\.pkr\.hcl$/);
+          expect(messages[0].location.position).toBeDefined();
+          expect(messages[0].location.position).toEqual([[1, 0], [1, 1]]);
+          expect(messages[1].severity).toBeDefined();
+          expect(messages[1].severity).toEqual('error');
+          expect(messages[1].excerpt).toBeDefined();
+          expect(messages[1].excerpt).toEqual("Unsupported attribute");
+          expect(messages[1].location.file).toBeDefined();
+          expect(messages[1].location.file).toMatch(/.+ok_hcl_packer_errors\.pkr\.hcl$/);
+          expect(messages[1].location.position).toBeDefined();
+          expect(messages[1].location.position).toEqual([[1, 0], [1, 1]]);
+        });
+      });
+    });
+  });
 });
