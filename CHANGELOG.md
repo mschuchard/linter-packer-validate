@@ -2,6 +2,7 @@
 - Minimum Packer version incremented to 1.6.0.
 
 - 1.6 error output format contains extra info on second and third newlines; maybe parse second and third lines for excerpt and just first line for severity); improve support once 1.6 docs are released
+- add more hcl fixtures
 
 ### 1.3.1
 - Add auto-formatting config option.
