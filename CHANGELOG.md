@@ -2,10 +2,10 @@
 - Minimum Packer version incremented to 1.6.0.
 - Iterate on double newlines instead of single (accuracy/efficiency).
 - Capture and display file name with issue instead of open file.
+- Remove JSON error generic notification.
 
 - 1.6 error output format contains extra info on second and third newlines; maybe parse second and third lines for excerpt and just first line for severity); improve support once 1.6 docs are released
 - update unit tests with e.g. position info
-- json error notify probably no longer necessary, because json not packer is ignored, and json packer has good packer error output
 
 ### 1.3.1
 - Add auto-formatting config option.
