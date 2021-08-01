@@ -1,3 +1,10 @@
+### (Next)
+- Updates to Linter API usage.
+
+### (Next)
+- 1.6 error output format contains extra info on second and third newlines; maybe parse second and third lines for excerpt and just first line for severity); improve support once 1.6 docs are released
+- update unit tests with e.g. position info
+
 ### 1.4.0
 - Minimum Packer version incremented to 1.6.0.
 - Iterate on double newlines instead of single (accuracy/efficiency).
