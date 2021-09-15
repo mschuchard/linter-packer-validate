@@ -1,6 +1,7 @@
 ### (Next)
 - Updates to Linter API usage.
 - Improve description quality of displayed issue message.
+- Fix return on stdin lint errors.
 
 - update unit tests with e.g. position info
 - update fixtures for 1.6 compat
