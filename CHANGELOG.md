@@ -2,8 +2,7 @@
 - Deprecate JSON template support.
 
 - update unit tests with e.g. position info
-- fixtures json to hcl2 via hcl2_upgrade (but this may not even work)
-- port over tf formatting config
+- port over tf formatting config block
 
 ### 1.4.1
 - Updates to Linter API usage.
