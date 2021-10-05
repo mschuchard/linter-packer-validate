@@ -17,7 +17,7 @@ env:
   global:
   - APM_TEST_PACKAGES='language-json language-hcl'
   - ATOM_LINT_WITH_BUNDLED_NODE='true'
-  - VERSION='1.6.6'
+  - VERSION='1.7.6'
 
 os: linux
 
