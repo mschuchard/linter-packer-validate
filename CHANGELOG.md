@@ -1,7 +1,6 @@
 ### 1.5.0 (Next)
 - Deprecate JSON template support.
 
-- update unit tests with e.g. position info
 - port over tf formatting config block
 
 ### 1.4.1

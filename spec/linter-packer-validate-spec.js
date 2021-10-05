@@ -49,7 +49,7 @@ describe('The Packer Validate provider for Linter', () => {
     it('finds the first message', () => {
       waitsForPromise(() =>
         lint(editor).then(messages => {
-          expect(messages.length).toEqual(2);
+          expect(messages.length).toEqual(1);
         })
       );
     });
@@ -60,7 +60,7 @@ describe('The Packer Validate provider for Linter', () => {
           expect(messages[0].severity).toBeDefined();
           expect(messages[0].severity).toEqual('error');
           expect(messages[0].excerpt).toBeDefined();
-          expect(messages[0].excerpt).toEqual("An argument or block definition is required here. To set an argument, use the\nequals sign \"=\" to introduce the argument value.");
+          expect(messages[0].excerpt).toEqual('An argument or block definition is required here. To set an argument, use the\nequals sign "=" to introduce the argument value.');
           expect(messages[0].location.file).toBeDefined();
           expect(messages[0].location.file).toMatch(/.+bad_hcl_bad_packer\.pkr\.hcl$/);
           expect(messages[0].location.position).toBeDefined();
@@ -107,7 +107,7 @@ describe('The Packer Validate provider for Linter', () => {
           expect(messages[0].severity).toBeDefined();
           expect(messages[0].severity).toEqual('error');
           expect(messages[0].excerpt).toBeDefined();
-          expect(messages[0].excerpt).toEqual('Unsupported attribute');
+          expect(messages[0].excerpt).toEqual('This object does not have an attribute named "vpcs".');
           expect(messages[0].location.file).toBeDefined();
           expect(messages[0].location.file).toMatch(/.+ok_hcl_packer_errors\.pkr\.hcl$/);
           expect(messages[0].location.position).toBeDefined();
@@ -115,7 +115,7 @@ describe('The Packer Validate provider for Linter', () => {
           expect(messages[1].severity).toBeDefined();
           expect(messages[1].severity).toEqual('error');
           expect(messages[1].excerpt).toBeDefined();
-          expect(messages[1].excerpt).toEqual('Unsupported attribute');
+          expect(messages[1].excerpt).toEqual('This object does not have an attribute named "vpc".');
           expect(messages[1].location.file).toBeDefined();
           expect(messages[1].location.file).toMatch(/.+ok_hcl_packer_errors\.pkr\.hcl$/);
           expect(messages[1].location.position).toBeDefined();
