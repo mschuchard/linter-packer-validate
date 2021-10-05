@@ -4,9 +4,9 @@ source "amazon-ebs" "example" {
   instance_type = "t2.micro"
 
   source_ami_filter {
-    filter {
-      key   = "virtualization-type"
-      value = "hvm"
+    filters = {
+      "virtualization-type" = "hvm"
+      "root-device-type"    = "ebs"
     }
     owners      = ["amazon"]
     most_recent = true
