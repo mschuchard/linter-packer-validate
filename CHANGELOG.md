@@ -1,5 +1,6 @@
 ### 1.5.0 (Next)
 - Deprecate JSON template support.
+- Add recursive and current file format options to package config.
 
 - port over tf formatting config block
 
