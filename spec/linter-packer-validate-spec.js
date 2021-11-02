@@ -60,7 +60,7 @@ describe('The Packer Validate provider for Linter', () => {
           expect(messages[0].severity).toBeDefined();
           expect(messages[0].severity).toEqual('error');
           expect(messages[0].excerpt).toBeDefined();
-          expect(messages[0].excerpt).toEqual('An argument or block definition is required here. To set an argument, use the\nequals sign "=" to introduce the argument value.');
+          expect(messages[0].excerpt).toEqual('An argument or block definition is required here. To set an argument, use the\\nequals sign "=" to introduce the argument value.');
           expect(messages[0].location.file).toBeDefined();
           expect(messages[0].location.file).toMatch(/.+bad_hcl_bad_packer\.pkr\.hcl$/);
           expect(messages[0].location.position).toBeDefined();

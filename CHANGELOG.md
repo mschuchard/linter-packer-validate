@@ -2,8 +2,6 @@
 - Deprecate JSON template support.
 - Add recursive and current file format options to package config.
 
-- port over tf formatting config block
-
 ### 1.4.1
 - Updates to Linter API usage.
 - Improve description quality of displayed issue message.
