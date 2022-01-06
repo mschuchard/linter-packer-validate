@@ -1,6 +1,10 @@
 ### 1.5.0 (Next)
 - Deprecate JSON template support.
 - Add recursive and current file format options to package config.
+- Use severity output instead of message for severity parsing.
+
+- parse entire line of "1641507610,,ui,error,Error: U..." for display
+- packer comma is not subbed if it appears on consecutive lines (see windows server base in azure snippets)
 
 ### 1.4.1
 - Updates to Linter API usage.
