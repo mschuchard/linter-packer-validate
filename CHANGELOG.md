@@ -1,13 +1,9 @@
-### 1.5.0 (Next)
+### 1.5.0
 - Deprecate JSON template support.
 - Add recursive and current file format options to package config.
 - Use severity output instead of message for severity parsing.
 - Improve severity parsing.
 - Replace newline characters in message with whitespace.
-
-- improve excerpt parsing, especially so that valid template/config message is not displayed
-- packer comma is not subbed if it appears on consecutive lines (see windows server base in azure snippets)
-- edxapp causes null severity on consecutive issue displays because packer merges them all into one line (maybe do not reset severity on iterations)
 
 ### 1.4.1
 - Updates to Linter API usage.
