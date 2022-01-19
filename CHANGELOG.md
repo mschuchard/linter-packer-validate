@@ -1,3 +1,6 @@
+### Next
+- Additional comma and newline excerpt replacements to improve display message.
+
 ### 1.5.0
 - Deprecate JSON template support.
 - Add recursive and current file format options to package config.
