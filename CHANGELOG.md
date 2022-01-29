@@ -1,5 +1,11 @@
 ### Next
 - Additional comma and newline excerpt replacements to improve display message.
+- Retain severity between output iterations due to Packer output behavior.
+
+- improve excerpt parsing, especially so that valid template/config message is not displayed
+- edxapp causes null severity on consecutive issue displays because packer merges them all into one line (maybe do not reset severity on iterations)
+- no longer showing file name on dir lint (edxapp example)
+- replaceAll on excerpt once atom nodejs version (15) supports it
 
 ### 1.5.0
 - Deprecate JSON template support.
