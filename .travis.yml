@@ -17,7 +17,7 @@ env:
   global:
   - APM_TEST_PACKAGES='language-json language-hcl'
   - ATOM_LINT_WITH_BUNDLED_NODE='true'
-  - VERSION='1.7.8'
+  - VERSION='1.7.10'
 
 os: linux
 
@@ -28,7 +28,4 @@ install:
   - mkdir -p /home/travis/bin
   - sudo unzip "packer_${VERSION}_linux_amd64.zip" -d /home/travis/bin/
 before_script: packer version
-script:
-- 'curl -s https://raw.githubusercontent.com/atom/ci/master/build-package.sh | sh || true'
-- echo 'Running specs...'
-- "${HOME}/atom/usr/bin/atom --test spec"
+script: 'curl -s https://raw.githubusercontent.com/mschuchard/vagrant-boxes-docker-images/master/atom-build-package.sh | sh'
