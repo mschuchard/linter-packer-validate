@@ -1,9 +1,9 @@
 ### Next
-- Additional comma and newline excerpt replacements to improve display message.
+- Additional comma and newline message replacements to improve display message.
 - Retain severity between output iterations due to Packer output behavior.
 - Provide message attribute defaults if no info from Packer.
+- Ignore new Packer message for valid configurations.
 
-- improve excerpt parsing, especially so that valid template/config message is not displayed
 - replaceAll on excerpt once atom nodejs version (15) supports it
 
 ### 1.5.0
