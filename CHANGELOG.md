@@ -1,10 +1,8 @@
-### Next
+### 1.5.1
 - Additional comma and newline message replacements to improve display message.
 - Retain severity between output iterations due to Packer output behavior.
 - Provide message attribute defaults if no info from Packer.
 - Ignore new Packer message for valid configurations.
-
-- replaceAll on excerpt once atom nodejs version (15) supports it
 
 ### 1.5.0
 - Deprecate JSON template support.
