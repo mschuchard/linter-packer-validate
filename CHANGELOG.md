@@ -1,3 +1,8 @@
+### Next
+
+- replaceAll on excerpt once atom nodejs version (15) supports it
+- 1.7.10 now has more complete info including col number; check debug for another interesting example
+
 ### 1.5.1
 - Additional comma and newline message replacements to improve display message.
 - Retain severity between output iterations due to Packer output behavior.

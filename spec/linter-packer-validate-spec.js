@@ -18,8 +18,8 @@ describe('The Packer Validate provider for Linter', () => {
   it('checks a valid non-packer hcl template and does nothing', (done) => {
     const goodFile = path.join(__dirname, 'fixtures/', 'ok_hcl_not_packer.hcl');
     return atom.workspace.open(goodFile).then(editor =>
-      lint(editor).then(messages => {
-      }, (reason) => {
+      lint(editor).then(=> {
+      }, () => {
         done();
       })
     );
@@ -28,8 +28,8 @@ describe('The Packer Validate provider for Linter', () => {
   it('checks an invalid non-packer hcl template and does nothing', (done) => {
     const badFile = path.join(__dirname, 'fixtures/', 'bad_hcl_not_packer.hcl');
     return atom.workspace.open(badFile).then(editor =>
-      lint(editor).then(messages => {
-      }, (reason) => {
+      lint(editor).then(=> {
+      }, () => {
         done();
       })
     );
@@ -106,7 +106,6 @@ describe('The Packer Validate provider for Linter', () => {
   });
 
   it('finds nothing wrong with a valid packer hcl template', () => {
-    let editor = null;
     waitsForPromise(() => {
       const goodFile = path.join(__dirname, 'fixtures', 'ok_hcl_ok_packer.hcl');
       return atom.workspace.open(goodFile).then(editor =>
@@ -118,7 +117,6 @@ describe('The Packer Validate provider for Linter', () => {
   });
 
   describe('checks a packer hcl template with errors', () => {
-    let editor = null;
     const badFile = path.join(__dirname, 'fixtures/', 'ok_hcl_packer_errors.pkr.hcl');
     beforeEach(() => {
       waitsForPromise(() =>
