@@ -1,4 +1,5 @@
 ### Next
+- Fix undefined variable in current file formatting logic.
 
 - replaceAll on excerpt once atom nodejs version (15) supports it
 - 1.7.10 now has more complete info including col number; check debug for another interesting example
