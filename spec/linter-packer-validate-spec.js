@@ -16,9 +16,9 @@ describe('The Packer Validate provider for Linter', () => {
   });
 
   it('checks a valid non-packer hcl template and does nothing', (done) => {
-    const goodFile = path.join(__dirname, 'fixtures/', 'ok_hcl_not_packer.hcl');
-    return atom.workspace.open(goodFile).then(editor =>
-      lint(editor).then(=> {
+    const otherFile = path.join(__dirname, 'fixtures/', 'ok_hcl_not_packer.hcl');
+    return atom.workspace.open(otherFile).then(editor =>
+      lint(editor).then(messages => {
       }, () => {
         done();
       })
@@ -26,9 +26,9 @@ describe('The Packer Validate provider for Linter', () => {
   });
 
   it('checks an invalid non-packer hcl template and does nothing', (done) => {
-    const badFile = path.join(__dirname, 'fixtures/', 'bad_hcl_not_packer.hcl');
-    return atom.workspace.open(badFile).then(editor =>
-      lint(editor).then(=> {
+    const otherFile = path.join(__dirname, 'fixtures/', 'bad_hcl_not_packer.hcl');
+    return atom.workspace.open(otherFile).then(editor =>
+      lint(editor).then(messages => {
       }, () => {
         done();
       })
@@ -60,7 +60,7 @@ describe('The Packer Validate provider for Linter', () => {
           expect(messages[0].severity).toBeDefined();
           expect(messages[0].severity).toEqual('error');
           expect(messages[0].excerpt).toBeDefined();
-          expect(messages[0].excerpt).toEqual('An argument or block definition is required here. To set an argument, use the\\nequals sign "=" to introduce the argument value.');
+          expect(messages[0].excerpt).toEqual('An argument or block definition is required here. To set an argument, use the equals sign "=" to introduce the argument value.');
           expect(messages[0].location.file).toBeDefined();
           expect(messages[0].location.file).toMatch(/.+bad_hcl_bad_packer\.pkr\.hcl$/);
           expect(messages[0].location.position).toBeDefined();
@@ -95,7 +95,7 @@ describe('The Packer Validate provider for Linter', () => {
           expect(messages[0].severity).toBeDefined();
           expect(messages[0].severity).toEqual('error');
           expect(messages[0].excerpt).toBeDefined();
-          expect(messages[0].excerpt).toEqual('This configuration does not support Packer version 1.7.8. To proceed, either choose another supported Packer version or update this version constraint. Version constraints are normally set for good reason, so updating the constraint may lead to other errors or unexpected behavior.');
+          expect(messages[0].excerpt).toEqual('This configuration does not support Packer version 1.7.10. To proceed, either choose another supported Packer version or update this version constraint. Version constraints are normally set for good reason, so updating the constraint may lead to other errors or unexpected behavior.');
           expect(messages[0].location.file).toBeDefined();
           expect(messages[0].location.file).toMatch(/.+ok_hcl_extra_packer_comma\.pkr\.hcl$/);
           expect(messages[0].location.position).toBeDefined();

@@ -10,6 +10,7 @@ on:
 env:
   CI: true
   PACKAGES: 'language-hcl'
+  VERSION: '1.7.10'
 
 jobs:
   lint-and-test:
