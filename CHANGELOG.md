@@ -1,8 +1,10 @@
 ### Next
 - Fix undefined variable in current file formatting logic.
+- Capture and display column information for message if available.
 
 - replaceAll on excerpt once atom nodejs version (15) supports it
-- 1.7.10 now has more complete info including col number; check debug for another interesting example
+- col info unit test
+- deal with packer comma in col info excerpt
 
 ### 1.5.1
 - Additional comma and newline message replacements to improve display message.
