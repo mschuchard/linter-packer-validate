@@ -126,7 +126,7 @@ describe('The Packer Validate provider for Linter', () => {
       );
     });
 
-    it('finds the first message', () => {
+    it('finds the messages', () => {
       waitsForPromise(() =>
         lint(editor).then(messages => {
           expect(messages.length).toEqual(2);
@@ -153,6 +153,40 @@ describe('The Packer Validate provider for Linter', () => {
           expect(messages[1].location.file).toMatch(/.+ok_hcl_packer_errors\.pkr\.hcl$/);
           expect(messages[1].location.position).toBeDefined();
           expect(messages[1].location.position).toEqual([[1, 0], [1, 1]]);
+        });
+      });
+    });
+  });
+
+  describe('checks a packer hcl template with an error with column info', () => {
+    const badFile = path.join(__dirname, 'fixtures/', 'ok_hcl_packer_col_info_error.pkr.hcl');
+    beforeEach(() => {
+      waitsForPromise(() =>
+        atom.workspace.open(badFile).then(openEditor => {
+          editor = openEditor;
+        })
+      );
+    });
+
+    it('finds the message', () => {
+      waitsForPromise(() =>
+        lint(editor).then(messages => {
+          expect(messages.length).toEqual(1);
+        })
+      );
+    });
+
+    it('verifies the message', () => {
+      waitsForPromise(() => {
+        return lint(editor).then(messages => {
+          expect(messages[0].severity).toBeDefined();
+          expect(messages[0].severity).toEqual('error');
+          expect(messages[0].excerpt).toBeDefined();
+          expect(messages[0].excerpt).toEqual('Invalid template interpolation value; Cannot include the given value in a string template: string required.');
+          expect(messages[0].location.file).toBeDefined();
+          expect(messages[0].location.file).toMatch(/.+ok_hcl_packer_col_info_error\.pkr\.hcl$/);
+          expect(messages[0].location.position).toBeDefined();
+          expect(messages[0].location.position).toEqual([[13, 14], [13, 30]]);
         });
       });
     });
