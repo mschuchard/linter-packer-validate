@@ -4,7 +4,6 @@
 - Fix message excerpts when `.` in message or ends with `?`.
 
 - replaceAll on excerpt once atom nodejs version (15) supports it
-- uncommon char ending unit test
 - "1648823310,,ui,error,Error: 2 error(s) occurred:\n\n* The `filters` must be specified\n* For security reasons%!(PACKER_COMMA) you must declare an owner.\n\n  on spec/fixtures/ok_hcl_packer_col_info_error.pkr.hcl line 1:\n  (source code not available)\n\n" has excerpt preceding line info
 
 ### 1.5.1
