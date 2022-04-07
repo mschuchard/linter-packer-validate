@@ -1,0 +1,5 @@
+
+
+
+
+data "amazon-ami" "ubuntu" {}

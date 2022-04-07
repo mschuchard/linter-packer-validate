@@ -193,7 +193,7 @@ describe('The Packer Validate provider for Linter', () => {
   });
 
   describe('checks a packer hcl template with an error with unusual characters in the excerpt', () => {
-    const badFile = path.join(__dirname, 'fixtures/', 'ok_hcl_packer_col_info_error.pkr.hcl');
+    const badFile = path.join(__dirname, 'fixtures/', 'ok_hcl_packer_message_uncommon_char.pkr.hcl');
     beforeEach(() => {
       waitsForPromise(() =>
         atom.workspace.open(badFile).then(openEditor => {
