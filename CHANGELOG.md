@@ -1,10 +1,7 @@
-### Next
+### 1.5.2
 - Fix undefined variable in current file formatting logic.
 - Capture and display column information for message if available.
 - Fix message excerpts when `.` in message or ends with `?`.
-
-- replaceAll on excerpt once atom nodejs version (15) supports it
-- deal with excerpt precedes other info
 
 ### 1.5.1
 - Additional comma and newline message replacements to improve display message.
