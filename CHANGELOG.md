@@ -1,3 +1,8 @@
+### Next
+- Capture rare error messages with leading asterisk character.
+
+- replaceAll on excerpt once atom nodejs version (15) supports it
+
 ### 1.5.2
 - Fix undefined variable in current file formatting logic.
 - Capture and display column information for message if available.
