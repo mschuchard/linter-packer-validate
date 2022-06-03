@@ -218,9 +218,43 @@ describe('The Packer Validate provider for Linter', () => {
           expect(messages[0].excerpt).toBeDefined();
           expect(messages[0].excerpt).toEqual('Did you mean to use "null.hi"?');
           expect(messages[0].location.file).toBeDefined();
-          expect(messages[0].location.file).toMatch(/ok_hcl_packer_message_uncommon_char.+\.pkr\.hcl$/);
+          expect(messages[0].location.file).toMatch(/ok_hcl_packer_message_uncommon_char\.pkr\.hcl$/);
           expect(messages[0].location.position).toBeDefined();
           expect(messages[0].location.position).toEqual([[0, 0], [0, 1]]);
+        });
+      });
+    });
+  });
+
+  describe('checks a packer hcl template with an error with unusual asterisk formatting in the excerpt', () => {
+    const badFile = path.join(__dirname, 'fixtures/', 'ok_hcl_packer_unusual_format.pkr.hcl');
+    beforeEach(() => {
+      waitsForPromise(() =>
+        atom.workspace.open(badFile).then(openEditor => {
+          editor = openEditor;
+        })
+      );
+    });
+
+    it('finds the message', () => {
+      waitsForPromise(() =>
+        lint(editor).then(messages => {
+          expect(messages.length).toEqual(1);
+        })
+      );
+    });
+
+    it('verifies the message', () => {
+      waitsForPromise(() => {
+        return lint(editor).then(messages => {
+          expect(messages[0].severity).toBeDefined();
+          expect(messages[0].severity).toEqual('error');
+          expect(messages[0].excerpt).toBeDefined();
+          expect(messages[0].excerpt).toMatch(/playbook_file: .*playbook.yaml is invalid: stat .*playbook.yaml: no such file or directory/);
+          expect(messages[0].location.file).toBeDefined();
+          expect(messages[0].location.file).toMatch(/ok_hcl_packer_unusual_format\.pkr\.hcl$/);
+          expect(messages[0].location.position).toBeDefined();
+          expect(messages[0].location.position).toEqual([[6, 0], [6, 1]]);
         });
       });
     });
