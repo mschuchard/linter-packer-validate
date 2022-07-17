@@ -1,7 +1,5 @@
-### Next
+### 1.5.3 (Next)
 - Capture rare error messages with leading asterisk character.
-
-- replaceAll on excerpt once atom nodejs version (15) supports it
 
 ### 1.5.2
 - Fix undefined variable in current file formatting logic.

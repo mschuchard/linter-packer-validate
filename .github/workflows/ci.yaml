@@ -33,9 +33,9 @@ jobs:
       run: apm install && apm install ${PACKAGES} && apm clean
     - name: lint source and spec
       run: ./node_modules/.bin/eslint lib spec || true
-    - name: install some pre-requisite packages
-      run: sudo apt-get update && sudo apt-get -yq install curl xvfb libgbm-dev
     - name: install packer
       run: curl -o packer.zip https://releases.hashicorp.com/packer/${VERSION}/packer_${VERSION}_linux_amd64.zip && sudo unzip packer.zip -d /usr/bin/
+    - name: debug path precedence to prioritize my packer over baked in packer
+      run: echo "$PATH"
     - name: run tests
       run: atom --test spec
