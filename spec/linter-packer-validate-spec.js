@@ -220,7 +220,7 @@ describe('The Packer Validate provider for Linter', () => {
           expect(messages[0].location.file).toBeDefined();
           expect(messages[0].location.file).toMatch(/ok_hcl_packer_message_uncommon_char\.pkr\.hcl$/);
           expect(messages[0].location.position).toBeDefined();
-          expect(messages[0].location.position).toEqual([[0, 0], [0, 1]]);
+          expect(messages[0].location.position).toEqual([[-1, 0], [-1, 1]]);
         });
       });
     });

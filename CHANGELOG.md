@@ -1,5 +1,6 @@
 ### 1.5.3 (Next)
 - Capture rare error messages with leading asterisk character.
+- Capture other info when output file info is an empty string.
 
 ### 1.5.2
 - Fix undefined variable in current file formatting logic.
