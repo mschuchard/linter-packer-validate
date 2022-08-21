@@ -1,4 +1,4 @@
-### 1.5.3 (Next)
+### 1.5.3
 - Capture rare error messages with leading asterisk character.
 - Capture other info when output file info is an empty string.
 - Fix message excepts when ends with `]`.
