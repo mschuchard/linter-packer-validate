@@ -1,3 +1,9 @@
+1663180142,,ui,error,Error: Unknown provisioner type "goss"\n\n  on build.pkr.hcl line 35:\n  (source code not available)\n\nknown provisioners: [sleep ansible shell ansible-local inspec shell-local\ntestinfra converge chef-solo windows-restart powershell file chef-client\nazure-dtlartifact salt-masterless puppet-masterless puppet-server windows-shell\nbreakpoint]\n\n
+
+### 1.5.4 (Next)
+- Avoid appending information prior to capturing file and line information.
+add unit test for early error info fixture
+
 ### 1.5.3
 - Capture rare error messages with leading asterisk character.
 - Capture other info when output file info is an empty string.
