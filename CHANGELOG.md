@@ -5,6 +5,9 @@ add unit test for early error info fixture
 - Add `envVars` config option.
 - Add undeclared variable warning config option.
 
+node.js 15 --> replaceall
+ok_hcl_packer_col_info_error.pkr.hcl has new weird output format
+
 ### 1.5.3
 - Capture rare error messages with leading asterisk character.
 - Capture other info when output file info is an empty string.
