@@ -3,6 +3,7 @@
 add unit test for early error info fixture
 - Capture error messages ending in a `"` character.
 - Add `envVars` config option.
+- Add undeclared variable warning config option.
 
 ### 1.5.3
 - Capture rare error messages with leading asterisk character.
