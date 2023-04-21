@@ -1,12 +1,8 @@
-### 1.5.4 (Next)
+### 1.5.4
 - Avoid appending information prior to capturing file and line information.
-add unit test for early error info fixture
 - Capture error messages ending in a `"` character.
 - Add `envVars` config option.
 - Add undeclared variable warning config option.
-
-node.js 15 --> replaceall
-ok_hcl_packer_col_info_error.pkr.hcl has new weird output format
 
 ### 1.5.3
 - Capture rare error messages with leading asterisk character.
