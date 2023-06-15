@@ -4,7 +4,7 @@ version: 2.1
 jobs:
   test:
     environment:
-      VERSION: '1.7.10'
+      VERSION: '1.8.7'
       DISPLAY: ':99'
       APM_TEST_PACKAGES: 'language-hcl'
     working_directory: /tmp/project
