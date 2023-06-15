@@ -1,3 +1,9 @@
+### 1.6.0 (Next)
+- Minimum Packer version incremented to 1.7.0.
+
+node.js 15 --> replaceall
+ok_hcl_packer_col_info_error.pkr.hcl has new weird output format
+
 ### 1.5.4
 - Avoid appending information prior to capturing file and line information.
 - Capture error messages ending in a `"` character.

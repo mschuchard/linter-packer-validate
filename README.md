@@ -24,7 +24,7 @@ and Pulsar:
 Additionally: this package is now in maintenance mode. All feature requests and bug reports in the Github repository issue tracker will receive a response, and possibly also be implemented (especially bug fixes). However, active development on this package has ceased.
 
 ### Installation
-Packer >= 1.6.0 is required to be installed before using this. If your version is lower, then you will need to downgrade this package to version 1.3.1. The Linter and Language-JSON and/or Language-HCL Atom packages are also required.
+Packer >= 1.7.0 is required to be installed before using this. If your version is lower, then you will need to downgrade this package to version 1.3.1 or 1.5.4. The Linter and Language-JSON and/or Language-HCL Atom packages are also required.
 
 Note that at this current time the package unit tests (outside of CI which will be Atom Beta `1.61.0` for the time being) and acceptance testing are performed with the latest stable version of Pulsar.
 
