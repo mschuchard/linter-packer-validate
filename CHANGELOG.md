@@ -2,7 +2,7 @@
 - Minimum Packer version incremented to 1.7.0.
 
 node.js 15 --> replaceall
-ok_hcl_packer_col_info_error.pkr.hcl has new weird output format
+ok_hcl_packer_col_info_error.pkr.hcl is displaying different linter information for no discernible package reason
 
 ### 1.5.4
 - Avoid appending information prior to capturing file and line information.
