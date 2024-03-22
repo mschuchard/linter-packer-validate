@@ -95,7 +95,7 @@ describe('The Packer Validate provider for Linter', () => {
           expect(messages[0].severity).toBeDefined();
           expect(messages[0].severity).toEqual('error');
           expect(messages[0].excerpt).toBeDefined();
-          expect(messages[0].excerpt).toEqual('This configuration does not support Packer version 1.7.10. To proceed, either choose another supported Packer version or update this version constraint. Version constraints are normally set for good reason, so updating the constraint may lead to other errors or unexpected behavior.');
+          expect(messages[0].excerpt).toEqual('This configuration does not support Packer version 1.9.5. To proceed, either choose another supported Packer version or update this version constraint. Version constraints are normally set for good reason, so updating the constraint may lead to other errors or unexpected behavior.');
           expect(messages[0].location.file).toBeDefined();
           expect(messages[0].location.file).toMatch(/.+ok_hcl_extra_packer_comma\.pkr\.hcl$/);
           expect(messages[0].location.position).toBeDefined();
