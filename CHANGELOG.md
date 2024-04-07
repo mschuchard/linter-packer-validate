@@ -1,9 +1,6 @@
-### 1.6.0 (Next)
+### 1.6.0
 - Minimum Packer version incremented to 1.7.0.
 - Properly capture warning severity.
-
-node.js 15 --> replaceall
-ok_hcl_packer_col_info_error.pkr.hcl is displaying different linter information for no discernible package reason
 
 ### 1.5.4
 - Avoid appending information prior to capturing file and line information.
