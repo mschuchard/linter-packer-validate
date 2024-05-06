@@ -129,7 +129,7 @@ describe('The Packer Validate provider for Linter', () => {
     it('finds the messages', () => {
       waitsForPromise(() =>
         lint(editor).then(messages => {
-          expect(messages.length).toEqual(2);
+          expect(messages.length).toEqual(3);
         })
       );
     });
@@ -138,21 +138,30 @@ describe('The Packer Validate provider for Linter', () => {
       waitsForPromise(() => {
         return lint(editor).then(messages => {
           expect(messages[0].severity).toBeDefined();
-          expect(messages[0].severity).toEqual('error');
+          expect(messages[0].severity).toEqual('warning');
           expect(messages[0].excerpt).toBeDefined();
-          expect(messages[0].excerpt).toEqual('This object does not have an attribute named "vpcs".');
+          expect(messages[0].excerpt).toEqual('This template relies on the use of plugins bundled into the Packer binary. The practice of bundling external plugins into Packer will be removed in an upcoming version.');
           expect(messages[0].location.file).toBeDefined();
           expect(messages[0].location.file).toMatch(/.+ok_hcl_packer_errors\.pkr\.hcl$/);
           expect(messages[0].location.position).toBeDefined();
-          expect(messages[0].location.position).toEqual([[1, 0], [1, 1]]);
+          expect(messages[0].location.position).toEqual([[0, 0], [0, 1]]);
+
           expect(messages[1].severity).toBeDefined();
           expect(messages[1].severity).toEqual('error');
           expect(messages[1].excerpt).toBeDefined();
-          expect(messages[1].excerpt).toEqual('This object does not have an attribute named "vpc".');
+          expect(messages[1].excerpt).toEqual('This object does not have an attribute named "vpcs".');
           expect(messages[1].location.file).toBeDefined();
           expect(messages[1].location.file).toMatch(/.+ok_hcl_packer_errors\.pkr\.hcl$/);
           expect(messages[1].location.position).toBeDefined();
           expect(messages[1].location.position).toEqual([[1, 0], [1, 1]]);
+          expect(messages[2].severity).toBeDefined();
+          expect(messages[2].severity).toEqual('error');
+          expect(messages[2].excerpt).toBeDefined();
+          expect(messages[2].excerpt).toEqual('This object does not have an attribute named "vpc".');
+          expect(messages[2].location.file).toBeDefined();
+          expect(messages[2].location.file).toMatch(/.+ok_hcl_packer_errors\.pkr\.hcl$/);
+          expect(messages[2].location.position).toBeDefined();
+          expect(messages[2].location.position).toEqual([[1, 0], [1, 1]]);
         });
       });
     });
@@ -182,11 +191,11 @@ describe('The Packer Validate provider for Linter', () => {
           expect(messages[0].severity).toBeDefined();
           expect(messages[0].severity).toEqual('error');
           expect(messages[0].excerpt).toBeDefined();
-          expect(messages[0].excerpt).toEqual(' Invalid template interpolation value; Cannot include the given value in a string template: string required.');
+          expect(messages[0].excerpt).toEqual('PACKER_COMMA)15-24: Invalid template interpolation value; Cannot include the given value in a string template: string required.');
           expect(messages[0].location.file).toBeDefined();
           expect(messages[0].location.file).toMatch(/.+ok_hcl_packer_col_info_error\.pkr\.hcl$/);
           expect(messages[0].location.position).toBeDefined();
-          expect(messages[0].location.position).toEqual([[13, 14], [13, 30]]);
+          expect(messages[0].location.position).toEqual([[13, 14], [13, 24]]);
         });
       });
     });

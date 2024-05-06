@@ -3,6 +3,9 @@
 
 node.js 15 --> replaceall
 ok_hcl_packer_col_info_error.pkr.hcl is displaying different linter information for no discernible package reason
+obnoxious packer comma now displaying in messages
+validate now displays incorrect line number before correct line number
+"unusual characters" unit test return inconsistent with reality
 
 ### 1.6.0
 - Minimum Packer version incremented to 1.7.0.

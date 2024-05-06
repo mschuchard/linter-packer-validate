@@ -1,6 +1,7 @@
-data "amazon-ami" "ubuntu" {
-  owners = ["1"]
+locals {
+  map = { "foo" = "bar" }
 }
+
 
 source "null" "hi" {
   communicator = "none"
@@ -11,7 +12,7 @@ build {
 
   provisioner "shell-local" {
     inline = [
-      "echo ${data.amazon-ami}",
+      "echo ${local.map}",
     ]
   }
 }
