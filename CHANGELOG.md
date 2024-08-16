@@ -1,11 +1,18 @@
 # 1.6.1 (Next)
 - Enable auto-formatting for Packer input variable files (`.pkrvars.hcl`).
+- Warn on automatic formatting errors returned for non-config/template Packer files.
 
 node.js 15 --> replaceall
 ok_hcl_packer_col_info_error.pkr.hcl is displaying different linter information for no discernible package reason
 obnoxious packer comma now displaying in messages
 validate now displays incorrect line number before correct line number
 "unusual characters" unit test return inconsistent with reality
+saving in file with issue shows extra display info line with superfluous info; saving in other file in config dir has no such extra display line; similarly true issue line uses other file in dir erroneously
+do not bail out early on pkrvars file after fmt if config option to lint dir is enabled
+similar to tf error on fmt effort:
+improve warn to only display non-config file issues?
+improve warn to only trigger when all issues derive from only non-config files?
+line/col parseint?
 
 ### 1.6.0
 - Minimum Packer version incremented to 1.7.0.
