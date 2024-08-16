@@ -25,8 +25,18 @@ describe('The Packer Validate provider for Linter', () => {
     );
   });
 
-  it('checks an invalid non-packer hcl template and does nothing', (done) => {
+  it('checks an invalid non-packer hcl template and emits no messages to the linter UI', (done) => {
     const otherFile = path.join(__dirname, 'fixtures/', 'bad_hcl_not_packer.hcl');
+    return atom.workspace.open(otherFile).then(editor =>
+      lint(editor).then(messages => {
+      }, () => {
+        done();
+      })
+    );
+  });
+
+  it('checks an invalid packer vars hcl file and does nothing', (done) => {
+    const otherFile = path.join(__dirname, 'fixtures/', 'bad_hcl_vars.pkrvars.hcl');
     return atom.workspace.open(otherFile).then(editor =>
       lint(editor).then(messages => {
       }, () => {
@@ -95,7 +105,7 @@ describe('The Packer Validate provider for Linter', () => {
           expect(messages[0].severity).toBeDefined();
           expect(messages[0].severity).toEqual('error');
           expect(messages[0].excerpt).toBeDefined();
-          expect(messages[0].excerpt).toEqual('This configuration does not support Packer version 1.9.5. To proceed, either choose another supported Packer version or update this version constraint. Version constraints are normally set for good reason, so updating the constraint may lead to other errors or unexpected behavior.');
+          expect(messages[0].excerpt).toEqual('This configuration does not support Packer version 1.10.3. To proceed, either choose another supported Packer version or update this version constraint. Version constraints are normally set for good reason, so updating the constraint may lead to other errors or unexpected behavior.');
           expect(messages[0].location.file).toBeDefined();
           expect(messages[0].location.file).toMatch(/.+ok_hcl_extra_packer_comma\.pkr\.hcl$/);
           expect(messages[0].location.position).toBeDefined();
@@ -140,7 +150,7 @@ describe('The Packer Validate provider for Linter', () => {
           expect(messages[0].severity).toBeDefined();
           expect(messages[0].severity).toEqual('warning');
           expect(messages[0].excerpt).toBeDefined();
-          expect(messages[0].excerpt).toEqual('This template relies on the use of plugins bundled into the Packer binary. The practice of bundling external plugins into Packer will be removed in an upcoming version.');
+          expect(messages[0].excerpt).toEqual('The source amazon-ebs is unknown by Packer, and is likely part of a plugin that is not installed. You may find the needed plugin along with installation instructions documented on the Packer integrations page.');
           expect(messages[0].location.file).toBeDefined();
           expect(messages[0].location.file).toMatch(/.+ok_hcl_packer_errors\.pkr\.hcl$/);
           expect(messages[0].location.position).toBeDefined();
