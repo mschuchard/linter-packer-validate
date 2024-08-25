@@ -1,7 +1,7 @@
 {
   "name": "linter-packer-validate",
   "main": "./lib/main.js",
-  "version": "1.6.0",
+  "version": "1.6.1",
   "description": "Packer lint via validate and format via fmt",
   "repository": "https://github.com/mschuchard/linter-packer-validate",
   "license": "MIT",
