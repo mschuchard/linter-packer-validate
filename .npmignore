@@ -3,7 +3,6 @@ node_modules
 spec
 linter_packer_validate.png
 .git
-.travis.yml
 package-lock.json
 .circleci
 .github
