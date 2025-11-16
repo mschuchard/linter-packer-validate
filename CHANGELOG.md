@@ -1,4 +1,6 @@
 ### (Next)
+- Improve package activation.
+
 node.js 15 --> replaceall
 ok_hcl_packer_col_info_error.pkr.hcl parsing line info early and missing actual line/col info because validate now displays incorrect line number before correct line number
 saving in file with issue shows extra display info line with superfluous info; saving in other file in config dir has no such extra display line; similarly true issue line uses other file in dir erroneously
